@@ -1,0 +1,25 @@
+.selection-box {
+  display: border-box;
+  display: flex;
+  height: 100px;
+  width: 200px;
+
+  position: relative;
+}
+
+.cursor-box {
+  width: 50%;
+  border: 5px dashed red;
+  background-color: rgba(255, 255, 255, 0.659);
+  border-radius: 50px;
+}
+
+.buttons-box {
+  width: 50%;
+  background-color: pink;
+}
+
+.buttons-box button {
+  width: 100%;
+  height: 33.33%;
+}
