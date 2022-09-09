@@ -1,0 +1,23 @@
+.char-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 20em;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid rgb(0, 0, 0);
+  gap: 0.5em;
+  padding-bottom: 0.5em;
+
+  background-color: white;
+  border-radius: 5px;
+  min-width: 240px;
+  max-width: 300px;
+}
+
+.char-card img {
+  max-height: 300px;
+}
+
+.char-card h2 {
+  font-size: 1.5rem;
+}

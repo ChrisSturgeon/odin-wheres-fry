@@ -4,9 +4,9 @@ import '../styles/NavBar.css';
 export function NavBar() {
   return (
     <div className="nav-bar">
-      <p>Para 1</p>
-      <p>Para 2</p>
-      <button>Expand</button>
+      <p>Timer here</p>
+      <h1>Where's Fry?</h1>
+      <p>Help</p>
     </div>
   );
 }

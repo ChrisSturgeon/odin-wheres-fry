@@ -9,9 +9,15 @@ export function SelectBox(props) {
       >
         <div className="cursor-box"></div>
         <div className="buttons-box">
-          <button onClick={props.logCharacter}>Guenter</button>
-          <button onClick={props.logCharacter}>Nibbler</button>
-          <button onClick={props.logCharacter}>Inez</button>
+          <button value="guenter" onClick={props.tag}>
+            Guenter
+          </button>
+          <button value="nibbler" onClick={props.tag}>
+            Nibbler
+          </button>
+          <button value="inez" onClick={props.tag}>
+            Inez
+          </button>
         </div>
       </div>
     );

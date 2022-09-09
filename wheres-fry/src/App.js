@@ -3,21 +3,21 @@ import { NavBar } from './components/NavBar';
 import { Puzzle } from './components/Puzzle';
 import { Home } from './components/Home';
 import './App.css';
+import { isTagCorrect } from './gameLogic';
 
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  const [clickedX, setClickedX] = useState(null);
+  const [clickedY, setClickedY] = useState(null);
   const [showSelect, setShowSelect] = useState(false);
   const [selectLeft, setSelectLeft] = useState(null);
   const [selectTop, setSelectTop] = useState(null);
 
   function logCoords(event) {
-    console.log(
-      `X: ${event.nativeEvent.offsetX}, Y: ${event.nativeEvent.offsetY}`
-    );
-    console.log(
-      `XScreen: ${event.nativeEvent.clientX}, YScreen ${event.nativeEvent.clientY}`
-    );
+    setClickedX(event.nativeEvent.offsetX);
+    setClickedY(event.nativeEvent.offsetY);
+
     if (showSelect) {
       setShowSelect(false);
     } else {
@@ -27,8 +27,9 @@ function App() {
     setSelectTop(-1091 + event.nativeEvent.offsetY - 55);
   }
 
-  function logCharacter(event) {
-    console.log(event.nativeEvent.target.innerText);
+  async function tag(event) {
+    const correct = await isTagCorrect(clickedX, clickedY, event.target.value);
+    console.log(correct);
   }
 
   return (
@@ -44,7 +45,7 @@ function App() {
               boxLeft={selectLeft}
               boxTop={selectTop}
               showSelect={showSelect}
-              logCharacter={logCharacter}
+              tag={tag}
             />
           }
         ></Route>

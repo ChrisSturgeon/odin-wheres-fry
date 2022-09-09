@@ -6,4 +6,13 @@
   position: sticky;
   top: 0;
   z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.nav-bar h1 {
+  font-size: 2rem;
+  font-weight: 700;
 }
