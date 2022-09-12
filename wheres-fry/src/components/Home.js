@@ -3,8 +3,9 @@ import { CharCard } from './CharCard';
 import guenter from '../imgs/guenter.jpeg';
 import inez from '../imgs/inez.jpeg';
 import nibbler from '../imgs/nibbler.jpeg';
+import { Link } from 'react-router-dom';
 
-export function Home() {
+export function Home(props) {
   return (
     <div className="home-wrapper">
       <div className="home-main">
@@ -18,7 +19,9 @@ export function Home() {
           <CharCard name="Inez" imgPath={inez} />
           <CharCard name="Nibbler" imgPath={nibbler} />
         </div>
-        <button>Start</button>
+        <button>
+          <Link to="puzzle">Play!</Link>
+        </button>
       </div>
     </div>
   );

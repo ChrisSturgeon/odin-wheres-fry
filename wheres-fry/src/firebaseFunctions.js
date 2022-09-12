@@ -1,5 +1,13 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  addDoc,
+} from 'firebase/firestore';
+import { createRoutesFromChildren } from 'react-router-dom';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCJGuEMC0IcZfsQlAhjCFDwQnb7EdFA9DA',
@@ -24,5 +32,18 @@ export async function getPosition(character) {
     return data;
   } catch (error) {
     console.log('Error getting position from FireStore', error);
+  }
+}
+
+export async function submitScore(score, name) {
+  const scoreData = {
+    score: score,
+    name: name,
+  };
+
+  try {
+    await addDoc(collection(db, 'scores'), scoreData);
+  } catch (error) {
+    console.log('Error writing data to Firebase', error);
   }
 }

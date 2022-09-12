@@ -16,3 +16,24 @@
   font-size: 2rem;
   font-weight: 700;
 }
+
+#homeBtn {
+  font-size: 2rem;
+  background-color: black;
+  border: none;
+  font-weight: 700;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:visited:hover,
+a:visited:hover {
+  color: rgb(111, 111, 113);
+}
