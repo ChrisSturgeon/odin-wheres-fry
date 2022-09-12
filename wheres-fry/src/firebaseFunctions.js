@@ -6,6 +6,11 @@ import {
   getDoc,
   setDoc,
   addDoc,
+  serverTimestamp,
+  query,
+  getDocs,
+  orderBy,
+  limit,
 } from 'firebase/firestore';
 import { createRoutesFromChildren } from 'react-router-dom';
 
@@ -39,6 +44,7 @@ export async function submitScore(score, name) {
   const scoreData = {
     score: score,
     name: name,
+    timestamp: serverTimestamp(),
   };
 
   try {
@@ -46,4 +52,21 @@ export async function submitScore(score, name) {
   } catch (error) {
     console.log('Error writing data to Firebase', error);
   }
+}
+
+export async function getHighScores() {
+  const data = [];
+  const highScoreQuery = query(
+    collection(db, 'scores'),
+    orderBy('score', 'asc'),
+    limit(10)
+  );
+
+  const querySnapShot = await getDocs(highScoreQuery);
+
+  querySnapShot.forEach((doc) => {
+    data.push(doc.data());
+  });
+
+  return data;
 }

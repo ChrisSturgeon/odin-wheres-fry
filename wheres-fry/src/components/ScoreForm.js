@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import { submitScore } from '../firebaseFunctions';
+import { getHighScores, submitScore } from '../firebaseFunctions';
 
 export function ScoreForm(props) {
-  const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(props.totalTime);
   const [name, setName] = useState('');
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
     submitScore(score, name);
-    setSubmitted(true);
+    props.confirmSubmit();
   }
 
   function nameChange(event) {
     setName(event.target.value);
   }
 
-  if (submitted) {
+  if (props.submitted) {
     return <div>Your score has been submitted to the leaderboard!</div>;
   } else {
     return (
