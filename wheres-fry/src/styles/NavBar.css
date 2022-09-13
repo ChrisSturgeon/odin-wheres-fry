@@ -6,10 +6,20 @@
   position: sticky;
   top: 0;
   z-index: 99;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+}
+
+#homeBtn a {
+  font-size: 2rem;
+  color: white;
 }
 
 .nav-bar h1 {
@@ -24,13 +34,23 @@
   font-weight: 700;
 }
 
+.nav-bar button {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.nav-bar .play-btn i {
+  color: black;
+}
+
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
 a:visited {
-  color: white;
+  color: black;
 }
 
 a:visited:hover,

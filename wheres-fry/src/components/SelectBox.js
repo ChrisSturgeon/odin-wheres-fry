@@ -7,7 +7,7 @@ export function SelectBox(props) {
         style={{ left: props.boxLeft, top: props.boxTop }}
         className="selection-box"
       >
-        <div className="cursor-box"></div>
+        <div className="cursor-box">{props.tagResult}</div>
         <div className="buttons-box">
           <button value="guenter" onClick={props.tag}>
             Guenter

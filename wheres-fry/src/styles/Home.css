@@ -1,6 +1,8 @@
 .home-wrapper {
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
+  color: white;
+  background-image: linear-gradient(to right top, #1d1135, #7649fe);
 }
 
 .home-main {
@@ -8,9 +10,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2.5em;
+  gap: 1.5em;
   justify-content: center;
   padding: 3em 10em;
+}
+
+.home-main p {
+  text-align: center;
 }
 
 .home-main h1 {
@@ -29,11 +35,20 @@
 .home-main button {
   font-size: 2.5rem;
   margin-bottom: 2em;
+  background-color: white;
+  border: none;
+  padding: 0.25em;
+  border-radius: 3px;
 }
 
-@media only screen and (max-width: 500px) {
+.home-main a {
+  color: black;
+}
+
+@media only screen and (max-width: 700px) {
   .home-main {
-    padding: 2em 2em;
+    padding: 1em 1em;
+    gap: 0;
   }
 
   .char-cards {

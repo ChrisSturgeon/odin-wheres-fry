@@ -17,6 +17,7 @@ export function Puzzle(props) {
         boxTop={props.boxTop}
         showSelect={props.showSelect}
         logCharacter={props.logCharacter}
+        tagResult={props.tagResult}
         tag={props.tag}
       />
     </div>

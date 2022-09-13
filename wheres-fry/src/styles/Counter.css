@@ -1,0 +1,8 @@
+.helpBox {
+  position: absolute;
+  background-color: red;
+  height: 100vh;
+  margin-left: 0;
+  width: 100%;
+  z-index: 99;
+}

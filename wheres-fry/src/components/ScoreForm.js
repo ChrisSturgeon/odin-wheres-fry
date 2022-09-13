@@ -9,18 +9,30 @@ export function ScoreForm(props) {
     event.preventDefault();
     submitScore(score, name);
     props.confirmSubmit();
+    props.markSubmitted();
   }
 
   function nameChange(event) {
-    setName(event.target.value);
+    if (event.target.value.length <= 20) {
+      setName(event.target.value);
+    }
   }
 
   if (props.submitted) {
     return <div>Your score has been submitted to the leaderboard!</div>;
   } else {
+    const minutes = Math.floor(props.totalTime / 60);
+    const seconds = props.totalTime - minutes * 60;
+
     return (
       <div>
-        <p>Your time was {props.totalTime} seconds</p>
+        {minutes > 0 ? (
+          <p>
+            Your time was {minutes} minutes and {seconds}!
+          </p>
+        ) : (
+          <p>Your time was {seconds} seconds!</p>
+        )}
         <form onSubmit={onSubmit}>
           <label htmlFor="name">Name</label>
           <input onChange={nameChange} value={name} id="name"></input>

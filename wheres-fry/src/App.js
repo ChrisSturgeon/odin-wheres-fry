@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavBar } from './components/NavBar';
 import { Puzzle } from './components/Puzzle';
 import { Home } from './components/Home';
-import { Scoreboard } from './components/Scoreboard';
+import { Scores } from './components/Scores';
 import './App.css';
 import { isTagCorrect } from './gameLogic';
 
@@ -13,11 +13,13 @@ function App() {
   const [clickedX, setClickedX] = useState(null);
   const [clickedY, setClickedY] = useState(null);
   const [showSelect, setShowSelect] = useState(false);
+  const [tagResult, setTagResult] = useState(null);
   const [selectLeft, setSelectLeft] = useState(null);
   const [selectTop, setSelectTop] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [totalTime, setTotalTime] = useState(null);
   const [timerActive, setTimerActive] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,9 +43,26 @@ function App() {
     const correct = await isTagCorrect(clickedX, clickedY, character);
     if (correct && !tagged.includes(character)) {
       setTagged((prevTagged) => prevTagged.concat(character));
+      markCorrect();
     } else {
-      console.log('not correct');
+      markWrong();
     }
+  }
+
+  // Marks finder box as correct for 1.5 seconds
+  function markCorrect() {
+    setTagResult('Correct!');
+    setTimeout(() => {
+      setTagResult(null);
+    }, 1500);
+  }
+
+  // Marks finder box as incorrect for 1.5 seconds
+  function markWrong() {
+    setTagResult('Wrong!');
+    setTimeout(() => {
+      setTagResult(null);
+    }, 1500);
   }
 
   function startPuzzle() {
@@ -56,18 +75,18 @@ function App() {
     setStartTime(null);
     setTimerActive(false);
     setTagged([]);
+    setSubmitted(false);
+    setTotalTime(null);
   }
 
   function puzzleComplete() {
     setTotalTime(Math.round((new Date() - startTime) / 1000));
     setTimerActive(false);
-    navigate('/scoreboard');
+    navigate('/scores');
   }
 
-  function checkStartTime() {
-    console.log(startTime);
-    const now = new Date();
-    console.log((now - startTime) / 1000);
+  function markSubmitted() {
+    setSubmitted(true);
   }
 
   // Console logs total finish time
@@ -88,9 +107,9 @@ function App() {
       <NavBar
         timerActive={timerActive}
         resetPuzzle={resetPuzzle}
-        checkStartTime={checkStartTime}
         startTime={startTime}
         totalTime={totalTime}
+        count={tagged.length}
       />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -103,13 +122,20 @@ function App() {
               boxLeft={selectLeft}
               boxTop={selectTop}
               showSelect={showSelect}
+              tagResult={tagResult}
               tag={tag}
             />
           }
         ></Route>
         <Route
-          path="/scoreboard"
-          element={<Scoreboard totalTime={totalTime} />}
+          path="/scores"
+          element={
+            <Scores
+              totalTime={totalTime}
+              submitted={submitted}
+              markSubmitted={markSubmitted}
+            />
+          }
         ></Route>
       </Routes>
     </div>

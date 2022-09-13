@@ -4,7 +4,6 @@ import {
   collection,
   doc,
   getDoc,
-  setDoc,
   addDoc,
   serverTimestamp,
   query,
@@ -12,7 +11,6 @@ import {
   orderBy,
   limit,
 } from 'firebase/firestore';
-import { createRoutesFromChildren } from 'react-router-dom';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCJGuEMC0IcZfsQlAhjCFDwQnb7EdFA9DA',
@@ -69,4 +67,21 @@ export async function getHighScores() {
   });
 
   return data;
+}
+
+export async function getRecentScores() {
+  const recentScores = [];
+  const recentScoresQuery = query(
+    collection(db, 'scores'),
+    orderBy('timestamp', 'desc'),
+    limit(10)
+  );
+
+  const querySnapShot = await getDocs(recentScoresQuery);
+
+  querySnapShot.forEach((doc) => {
+    recentScores.push(doc.data());
+  });
+
+  return recentScores;
 }
