@@ -135,3 +135,16 @@ p {
 table {
   text-align: center;
 }
+
+button {
+  cursor: pointer;
+}
+
+:root {
+  --main-bg-colour: #ffebd7;
+  --card-color: #ff8862;
+  --text-color: rgb(48, 48, 48);
+  --button-color: #86a295;
+  --correct: rgb(57, 172, 57);
+  --wrong: rgb(226, 51, 51);
+}

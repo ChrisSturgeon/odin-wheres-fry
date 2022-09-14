@@ -14,6 +14,7 @@ function App() {
   const [clickedY, setClickedY] = useState(null);
   const [showSelect, setShowSelect] = useState(false);
   const [tagResult, setTagResult] = useState(null);
+  const [resultsText, setResultsText] = useState('');
   const [selectLeft, setSelectLeft] = useState(null);
   const [selectTop, setSelectTop] = useState(null);
   const [startTime, setStartTime] = useState(null);
@@ -51,7 +52,8 @@ function App() {
 
   // Marks finder box as correct for 1.5 seconds
   function markCorrect() {
-    setTagResult('Correct!');
+    setTagResult(true);
+    setResultsText('Correct!');
     setTimeout(() => {
       setTagResult(null);
     }, 1500);
@@ -59,7 +61,8 @@ function App() {
 
   // Marks finder box as incorrect for 1.5 seconds
   function markWrong() {
-    setTagResult('Wrong!');
+    setTagResult(false);
+    setResultsText('Wrong!');
     setTimeout(() => {
       setTagResult(null);
     }, 1500);
@@ -73,8 +76,10 @@ function App() {
 
   function resetPuzzle() {
     setStartTime(null);
+    setTagResult(null);
     setTimerActive(false);
     setTagged([]);
+    setShowSelect(false);
     setSubmitted(false);
     setTotalTime(null);
   }
@@ -123,6 +128,7 @@ function App() {
               boxTop={selectTop}
               showSelect={showSelect}
               tagResult={tagResult}
+              resultsText={resultsText}
               tag={tag}
             />
           }

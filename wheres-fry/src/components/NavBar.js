@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Help } from './Help';
 import { Timer } from '../components/Timer';
+import { Counter } from '../components/Counter';
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +23,9 @@ export function NavBar(props) {
           <Timer startTime={props.startTime} totalTime={props.totalTime} />
         ) : (
           <button className="play-btn">
-            <Link to="puzzle">Play</Link>
+            <Link to="puzzle">
+              <i className="fa-solid fa-play"></i>
+            </Link>
           </button>
         )}
         <button onClick={props.resetPuzzle} id="homeBtn">
@@ -31,7 +34,11 @@ export function NavBar(props) {
           </Link>
         </button>
         {props.timerActive ? (
-          <button onClick={toggleHelp}>{3 - props.count}</button>
+          <Counter
+            count={props.count}
+            toggleHelp={toggleHelp}
+            helpBar={helpBar}
+          />
         ) : null}
 
         {props.timerActive ? null : (

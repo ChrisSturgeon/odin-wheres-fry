@@ -1,11 +1,16 @@
+.scores-wrapper {
+  min-height: 100vh;
+  background-color: var(--main-bg-colour);
+}
+
 .scores-main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1.5em;
+  gap: 3em;
   justify-content: center;
-  padding: 3em 10em;
+  padding: 1em 10em;
 }
 
 .scores-tables {
@@ -17,24 +22,40 @@
 }
 
 .scores-tables h2 {
+  margin-bottom: 0.5em;
   text-align: center;
   font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: underline;
 }
 
 .scores-tables table {
-  border: 2px solid black;
-  background-image: linear-gradient(to right top, #655ec2, #c75cb6, #ff6a96);
-  color: white;
+  color: var(--text-color);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(48, 48, 48, 0.116);
 }
 
 .scores-tables th,
 .scores-tables td {
-  padding: 0.2em 1em;
+  padding: 0.6em 1.6em;
+}
+
+.scores-tables th {
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 700px) {
   .scores-main {
-    padding: 0.5em 0em;
-    gap: 0;
+    padding: 1em 0em;
+    gap: 1em;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .scores-main {
+    padding: 1em 20em;
   }
 }

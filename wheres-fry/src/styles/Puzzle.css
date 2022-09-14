@@ -1,7 +1,23 @@
-.puzzle {
+.puzzle-wrapper {
   overflow: scroll;
-  background-color: blue;
+  position: relative;
 }
+
+.puzzle-wrapper-focused {
+  overflow: scroll;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.normal {
+  filter: none;
+}
+
+.focused {
+  filter: brightness(20%);
+  z-index: -4;
+}
+
 /* 
 .choice-box {
   display: border-box;

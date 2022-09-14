@@ -14,6 +14,10 @@ export function Home(props) {
           time to see if you can reach the top of the scoreboard! Once you've
           found one, click to tag them.
         </p>
+        <p>
+          Tip: click the score in the top right if you forget what the
+          characters look like!
+        </p>
         <div className="char-cards">
           <CharCard name="Guenter" imgPath={guenter} />
           <CharCard name="Inez" imgPath={inez} />

@@ -1,7 +1,7 @@
 .nav-bar {
   box-sizing: border-box;
-  color: white;
-  background-color: black;
+  color: var(--text-color);
+  background-color: var(--main-bg-colour);
   min-width: 100%;
   position: sticky;
   top: 0;
@@ -15,11 +15,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.15rem;
 }
 
 #homeBtn a {
   font-size: 2rem;
-  color: white;
+  color: var(--text-color);
 }
 
 .nav-bar h1 {
@@ -27,33 +28,45 @@
   font-weight: 700;
 }
 
+.play-btn a i {
+  font-size: 1.75rem;
+  color: var(--text-color);
+}
+
 #homeBtn {
   font-size: 2rem;
-  background-color: black;
-  border: none;
+  background-color: transparent;
+  border: 3px solid var(--text-color);
+  border-radius: 5px;
   font-weight: 700;
 }
 
-.nav-bar button {
-  background-color: white;
-  color: black;
-  border: none;
+#homeBtn:hover {
+  background-color: var(--button-color);
+  color: white;
 }
 
-.nav-bar .play-btn i {
-  color: black;
+.nav-bar button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.25rem;
 }
 
 a {
-  color: black;
+  color: var(--main-bg-colour);
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: rgb(48, 48, 48);
 }
 
-a:visited:hover,
-a:visited:hover {
-  color: rgb(111, 111, 113);
+@media only screen and (max-width: 700px) {
+  .nav-bar button {
+    font-size: 1rem;
+  }
+
+  .play-btn a i {
+    font-size: 1.25rem;
+  }
 }

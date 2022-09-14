@@ -1,8 +1,13 @@
-.helpBox {
-  position: absolute;
-  background-color: red;
-  height: 100vh;
-  margin-left: 0;
-  width: 100%;
-  z-index: 99;
+.counter-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.25rem;
+}
+
+.count-number {
+  color: var(--main-bg-colour);
+  padding: 6px 12px;
+  border-radius: 60%;
+  background-color: var(--text-color);
 }

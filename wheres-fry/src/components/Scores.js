@@ -31,30 +31,25 @@ export function Scores(props) {
   }, [submitted]);
 
   return (
-    <div className="scores-main">
-      {/* {props.totalTime && props.submitted === false ? (
-        <ScoreForm
-          submitted={submitted}
-          confirmSubmit={confirmSubmit}
-          totalTime={props.totalTime}
-          markSubmitted={props.markSubmitted}
-        />
-      ) : null} */}
-
-      <ScoreForm
-        submitted={submitted}
-        confirmSubmit={confirmSubmit}
-        totalTime={props.totalTime}
-        markSubmitted={props.markSubmitted}
-      />
-
-      <div className="scores-tables">
-        {highScores ? (
-          <ScoresTable title={'High Scores'} scores={highScores} />
+    <div className="scores-wrapper">
+      <div className="scores-main">
+        {props.totalTime && props.submitted === false ? (
+          <ScoreForm
+            submitted={submitted}
+            confirmSubmit={confirmSubmit}
+            totalTime={props.totalTime}
+            markSubmitted={props.markSubmitted}
+          />
         ) : null}
-        {recentScores ? (
-          <ScoresTable title={'Recent Scores'} scores={recentScores} />
-        ) : null}
+
+        <div className="scores-tables">
+          {highScores ? (
+            <ScoresTable title={'High Scores'} scores={highScores} />
+          ) : null}
+          {recentScores ? (
+            <ScoresTable title={'Recent Scores'} scores={recentScores} />
+          ) : null}
+        </div>
       </div>
     </div>
   );

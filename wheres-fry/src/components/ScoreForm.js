@@ -1,5 +1,7 @@
+import '../styles/ScoresForm.css';
+
 import { useState } from 'react';
-import { getHighScores, submitScore } from '../firebaseFunctions';
+import { submitScore } from '../firebaseFunctions';
 
 export function ScoreForm(props) {
   const [score, setScore] = useState(props.totalTime);
@@ -19,13 +21,17 @@ export function ScoreForm(props) {
   }
 
   if (props.submitted) {
-    return <div>Your score has been submitted to the leaderboard!</div>;
+    return (
+      <div className="submitted-msg">
+        Your score has been submitted to the leaderboard!
+      </div>
+    );
   } else {
     const minutes = Math.floor(props.totalTime / 60);
     const seconds = props.totalTime - minutes * 60;
 
     return (
-      <div>
+      <div className="submission">
         {minutes > 0 ? (
           <p>
             Your time was {minutes} minutes and {seconds}!
@@ -34,9 +40,12 @@ export function ScoreForm(props) {
           <p>Your time was {seconds} seconds!</p>
         )}
         <form onSubmit={onSubmit}>
-          <label htmlFor="name">Name</label>
-          <input onChange={nameChange} value={name} id="name"></input>
-          <button type="submit">Submit</button>
+          <div className="submission-inputs">
+            <label htmlFor="name">Your Name</label>
+            <input onChange={nameChange} value={name} id="name"></input>
+          </div>
+
+          <button type="submit">Add to leaderboard</button>
         </form>
       </div>
     );
