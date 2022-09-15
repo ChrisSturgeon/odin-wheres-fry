@@ -1,12 +1,11 @@
+import './App.css';
 import { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
 import { Puzzle } from './components/Puzzle';
 import { Home } from './components/Home';
 import { Scores } from './components/Scores';
-import './App.css';
 import { isTagCorrect } from './gameLogic';
-
-import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
   const [tagged, setTagged] = useState([]);
@@ -21,10 +20,9 @@ function App() {
   const [totalTime, setTotalTime] = useState(null);
   const [timerActive, setTimerActive] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
   const navigate = useNavigate();
 
-  // Receives coordinates of mouseclick and updates their states, showing box
+  // Receives coordinates of mouseclick event on image, stores location in state and activates selection box.
   function logCoords(event) {
     setClickedX(event.nativeEvent.offsetX);
     setClickedY(event.nativeEvent.offsetY);
@@ -38,13 +36,21 @@ function App() {
     setSelectTop(-1091 + event.nativeEvent.offsetY - 55);
   }
 
-  // Calculates if a tag is valid or not
+  // De-activates selection box
+  function cancelSelect() {
+    setShowSelect(false);
+  }
+
+  // Checks if player's tag is valid or not
   async function tag(event) {
     const character = event.target.value;
     const correct = await isTagCorrect(clickedX, clickedY, character);
     if (correct && !tagged.includes(character)) {
       setTagged((prevTagged) => prevTagged.concat(character));
       markCorrect();
+      if (tagged.length === 3) {
+        puzzleComplete();
+      }
     } else {
       markWrong();
     }
@@ -74,6 +80,7 @@ function App() {
     setTimerActive(true);
   }
 
+  // Sets neccessary states to simulate new game
   function resetPuzzle() {
     setStartTime(null);
     setTagResult(null);
@@ -84,6 +91,7 @@ function App() {
     setTotalTime(null);
   }
 
+  // Stores final time in state and redirects to scoreboard page
   function puzzleComplete() {
     setTotalTime(Math.round((new Date() - startTime) / 1000));
     setTimerActive(false);
@@ -94,14 +102,8 @@ function App() {
     setSubmitted(true);
   }
 
-  // Console logs total finish time
+  // Runs after each tag attempt to see if player has tagged all three characters after each tag attempt
   useEffect(() => {
-    console.log(`${totalTime} seconds`);
-  }, [totalTime]);
-
-  // Calculates if player has tagged all three characters
-  useEffect(() => {
-    console.log(tagged);
     if (tagged.length === 3) {
       puzzleComplete();
     }
@@ -115,6 +117,7 @@ function App() {
         startTime={startTime}
         totalTime={totalTime}
         count={tagged.length}
+        cancelSelect={cancelSelect}
       />
       <Routes>
         <Route path="/" element={<Home />}></Route>

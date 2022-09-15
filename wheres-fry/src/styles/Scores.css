@@ -43,6 +43,11 @@ tbody tr:nth-child(odd) {
   padding: 0.6em 1.6em;
 }
 
+tbody tr:hover {
+  background-color: var(--button-color);
+  color: white;
+}
+
 .scores-tables th {
   font-weight: 700;
 }
@@ -50,7 +55,11 @@ tbody tr:nth-child(odd) {
 @media only screen and (max-width: 700px) {
   .scores-main {
     padding: 1em 0em;
-    gap: 1em;
+    gap: 2em;
+  }
+
+  .scores-wrapper {
+    padding: 0.5em 0.75em;
   }
 }
 

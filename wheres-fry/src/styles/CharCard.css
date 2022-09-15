@@ -9,12 +9,8 @@
   background-color: var(--card-color);
   border: 2px solid var(--text-color);
   border-radius: 10px;
-
-  /* background-image: linear-gradient(to right top, #ba1e68, #fcfbfe); */
   min-width: 240px;
   max-width: 300px;
-  /* box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.858);
-  border-radius: 10px; */
 }
 
 .char-card img {

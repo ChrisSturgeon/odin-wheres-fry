@@ -18,11 +18,6 @@
   font-size: 1.15rem;
 }
 
-#homeBtn a {
-  font-size: 2rem;
-  color: var(--text-color);
-}
-
 .nav-bar h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -34,31 +29,39 @@
 }
 
 #homeBtn {
-  font-size: 2rem;
   background-color: transparent;
-  border: 3px solid var(--text-color);
+  border: 2px solid var(--text-color);
   border-radius: 5px;
   font-weight: 700;
 }
 
+#homeBtn a {
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+#homeBtn a:hover {
+  color: white;
+}
+
 #homeBtn:hover {
   background-color: var(--button-color);
-  color: white;
 }
 
 .nav-bar button {
   background-color: transparent;
   border: none;
   font-size: 1.25rem;
+  color: var(--text-color);
 }
 
 a {
-  color: var(--main-bg-colour);
+  color: var(--text-color);
   text-decoration: none;
 }
 
 a:visited {
-  color: rgb(48, 48, 48);
+  color: var(--text-color);
 }
 
 @media only screen and (max-width: 700px) {
@@ -68,5 +71,9 @@ a:visited {
 
   .play-btn a i {
     font-size: 1.25rem;
+  }
+
+  #homeBtn a {
+    font-size: 1.5rem;
   }
 }

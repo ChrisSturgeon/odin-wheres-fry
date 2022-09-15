@@ -1,11 +1,11 @@
 import '../styles/Home.css';
+import { Link } from 'react-router-dom';
 import { CharCard } from './CharCard';
 import guenter from '../imgs/guenter.jpeg';
 import inez from '../imgs/inez.jpeg';
 import nibbler from '../imgs/nibbler.jpeg';
-import { Link } from 'react-router-dom';
 
-export function Home(props) {
+export function Home() {
   return (
     <div className="home-wrapper">
       <div className="home-main">

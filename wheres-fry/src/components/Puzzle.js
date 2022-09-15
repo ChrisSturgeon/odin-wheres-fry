@@ -4,6 +4,7 @@ import { SelectBox } from './SelectBox';
 import { useEffect } from 'react';
 
 export function Puzzle(props) {
+  // Starts game timer on component render
   useEffect(() => {
     props.startPuzzle();
   }, []);

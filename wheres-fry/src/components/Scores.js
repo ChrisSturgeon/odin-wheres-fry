@@ -1,5 +1,4 @@
 import '../styles/Scores.css';
-
 import { getHighScores, getRecentScores } from '../firebaseFunctions';
 import { ScoreForm } from './ScoreForm';
 import { ScoresTable } from './ScoresTable';
@@ -9,10 +8,6 @@ export function Scores(props) {
   const [highScores, setHighScores] = useState(null);
   const [recentScores, setRecentScores] = useState(null);
   const [submitted, setSubmitted] = useState(false);
-
-  function logScores() {
-    console.log(recentScores);
-  }
 
   function confirmSubmit() {
     setSubmitted(true);
@@ -28,6 +23,7 @@ export function Scores(props) {
       setRecentScores(recentScores);
     }
     fetchScores();
+    window.scrollTo(0, 0);
   }, [submitted]);
 
   return (
@@ -40,6 +36,12 @@ export function Scores(props) {
             totalTime={props.totalTime}
             markSubmitted={props.markSubmitted}
           />
+        ) : null}
+
+        {submitted ? (
+          <div className="submitted-msg">
+            Your score has been submitted to the leaderboard!
+          </div>
         ) : null}
 
         <div className="scores-tables">

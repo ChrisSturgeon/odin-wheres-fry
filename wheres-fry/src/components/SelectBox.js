@@ -5,6 +5,7 @@ export function SelectBox(props) {
   const [styling, setStyling] = useState('tag-neutral');
   const [text, setText] = useState('');
 
+  // Changes focus ring styling colour after tag attempt to red or green, and marks with tick or cross
   useEffect(() => {
     if (props.tagResult) {
       setStyling('tag-correct');

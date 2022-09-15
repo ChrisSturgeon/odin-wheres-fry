@@ -7,21 +7,27 @@
   z-index: 99;
 }
 
-.tag-correct {
+.tag-correct,
+.tag-wrong,
+.tag-neutral {
   text-align: center;
   line-height: 90px;
   width: 50%;
-  border: 5px solid var(--correct);
   border-radius: 70px;
+}
+
+.tag-correct {
+  border: 5px solid var(--correct);
   backdrop-filter: brightness(500%);
 }
 
 .tag-wrong {
-  text-align: center;
-  line-height: 90px;
-  width: 50%;
   border: 5px solid var(--wrong);
-  border-radius: 70px;
+  backdrop-filter: brightness(500%);
+}
+
+.tag-neutral {
+  border: 5px solid rgb(148, 148, 148);
   backdrop-filter: brightness(500%);
 }
 
@@ -35,15 +41,6 @@
   margin-top: 10px;
   color: var(--wrong);
   font-size: 4rem;
-}
-
-.tag-neutral {
-  text-align: center;
-  line-height: 90px;
-  width: 50%;
-  border: 5px solid rgb(148, 148, 148);
-  border-radius: 70px;
-  backdrop-filter: brightness(500%);
 }
 
 .buttons-box {

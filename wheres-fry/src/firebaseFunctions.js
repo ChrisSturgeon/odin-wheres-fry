@@ -25,6 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
+// Returns image coordinates for given character from Firebase document
 export async function getPosition(character) {
   const char = character;
   const docRef = doc(db, 'positions', char);
@@ -38,6 +39,7 @@ export async function getPosition(character) {
   }
 }
 
+// Creates firebase document with players final time and name.
 export async function submitScore(score, name) {
   const scoreData = {
     score: score,
@@ -52,6 +54,7 @@ export async function submitScore(score, name) {
   }
 }
 
+// Returns array of 10 best times from Firebase store
 export async function getHighScores() {
   const data = [];
   const highScoreQuery = query(
@@ -69,6 +72,7 @@ export async function getHighScores() {
   return data;
 }
 
+// Returns array of 10 most recent submitted scores from Firebase store
 export async function getRecentScores() {
   const recentScores = [];
   const recentScoresQuery = query(

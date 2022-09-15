@@ -1,5 +1,5 @@
-import { CharCard } from './CharCard';
 import '../styles/Help.css';
+import { CharCard } from './CharCard';
 import guenter from '../imgs/guenter.jpeg';
 import inez from '../imgs/inez.jpeg';
 import nibbler from '../imgs/nibbler.jpeg';

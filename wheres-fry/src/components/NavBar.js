@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import { Help } from './Help';
-import { Timer } from '../components/Timer';
-import { Counter } from '../components/Counter';
 import '../styles/NavBar.css';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Help } from './Help';
+import { Timer } from './Timer';
+import { Counter } from './Counter';
 
 export function NavBar(props) {
   const [helpBar, setHelpBar] = useState(false);
 
+  // Displays help bar on counter button click, cancelling selection box if active to avoid overlap.
   function toggleHelp() {
     if (helpBar) {
       setHelpBar(false);
-    } else {
+    } else if (helpBar === false) {
+      props.cancelSelect();
       setHelpBar(true);
     }
   }
