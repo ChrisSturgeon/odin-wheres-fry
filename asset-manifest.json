@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/odin-wheres-fry/static/css/main.6ee38d8d.css",
-    "main.js": "/odin-wheres-fry/static/js/main.39fc5c89.js",
+    "main.js": "/odin-wheres-fry/static/js/main.70e1db0f.js",
     "static/media/cast.jpeg": "/odin-wheres-fry/static/media/cast.0bbdf01ebc8ba19d697f.jpeg",
     "static/media/nibbler.jpeg": "/odin-wheres-fry/static/media/nibbler.8669ef6916bd35c0aaf2.jpeg",
     "static/media/guenter.jpeg": "/odin-wheres-fry/static/media/guenter.59ed44a33ed5dcc6f84f.jpeg",
     "static/media/inez.jpeg": "/odin-wheres-fry/static/media/inez.39ac8495094af89f7dbf.jpeg",
     "index.html": "/odin-wheres-fry/index.html",
     "main.6ee38d8d.css.map": "/odin-wheres-fry/static/css/main.6ee38d8d.css.map",
-    "main.39fc5c89.js.map": "/odin-wheres-fry/static/js/main.39fc5c89.js.map"
+    "main.70e1db0f.js.map": "/odin-wheres-fry/static/js/main.70e1db0f.js.map"
   },
   "entrypoints": [
     "static/css/main.6ee38d8d.css",
-    "static/js/main.39fc5c89.js"
+    "static/js/main.70e1db0f.js"
   ]
 }
