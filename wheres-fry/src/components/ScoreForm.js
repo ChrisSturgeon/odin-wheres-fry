@@ -28,7 +28,7 @@ export function ScoreForm(props) {
     <div className="submission">
       {minutes > 0 ? (
         <p>
-          Your time was {minutes} minutes and {seconds}!
+          Your time was {minutes} minutes and {seconds} seconds!
         </p>
       ) : (
         <p>Your time was {seconds} seconds!</p>
